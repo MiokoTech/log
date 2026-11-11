@@ -1,0 +1,822 @@
+========== GIT REVISION ==========
+e5fce0f26a2229b8ed70357d2d503780235c0eba
+ M translator/src/Translator.Core/Disassembly/PpcDecoder.Primary31.cs
+ M translator/tests/Translator.Tests/PpcDecoderPrimary31Tests.cs
+ M translator/tests/Translator.Tests/PpcLifterTests.cs
+?? AUGMENTED_DOL_REPORT.txt
+?? README.txt
+?? Tides_RSO_PRELINK_REPORT.txt
+?? Tides_Sofdec_RSO_Prelink_Manifest.json
+?? audit/
+?? projects/tides/
+
+========== TERMUX TOOLCHAIN ==========
+--- cmake ---
+/data/data/com.termux/files/usr/bin/cmake
+cmake version 4.4.5
+
+--- ninja ---
+/data/data/com.termux/files/usr/bin/ninja
+1.13.2
+--- clang ---
+/data/data/com.termux/files/usr/bin/clang
+clang version 21.1.8
+Target: aarch64-unknown-linux-android24
+--- clang++ ---
+/data/data/com.termux/files/usr/bin/clang++
+clang version 21.1.8
+Target: aarch64-unknown-linux-android24
+--- python3 ---
+/data/data/com.termux/files/usr/bin/python3
+Python 3.14.8
+--- dotnet ---
+/data/data/com.termux/files/usr/bin/dotnet
+8.0.132
+--- java ---
+/data/data/com.termux/files/usr/bin/java
+openjdk 21.0.13 2026-10-20
+OpenJDK Runtime Environment (build 21.0.13)
+--- gradle ---
+/data/data/com.termux/files/usr/bin/gradle
+
+------------------------------------------------------------
+
+========== ANDROID ENVIRONMENT ==========
+ANDROID_HOME=/data/data/com.termux/files/home/android-sdk
+ANDROID_SDK_ROOT=/data/data/com.termux/files/home/android-sdk
+ANDROID_NDK_HOME=/data/data/com.termux/files/home/android-sdk/ndk/29.0.14206865
+ANDROID_NDK_ROOT=/data/data/com.termux/files/home/android-sdk/ndk/29.0.14206865
+Pkg.Desc = Android NDK
+Pkg.Revision = 29.0.14206865
+Pkg.BaseRevision = 29.0.14206865
+Pkg.ReleaseName = r29
+
+========== INSTALLED NDK VERSIONS ==========
+/data/data/com.termux/files/home/android-sdk/ndk/29.0.14206865
+/data/data/com.termux/files/home/android-sdk/ndk/25.2.9519653
+
+========== PINNED DEPENDENCIES ==========
+Dependencies directory missing
+
+========== GENERATED DIRECTORY ==========
+ls: cannot access 'generated': No such file or directory
+drwx------. 5 u0_a257 u0_a257 3488 Nov 12 02:04 build/tides
+drwx------. 7 u0_a257 u0_a257 3488 Nov 12 02:04 build/tides/build_shards
+-rw-------. 1 u0_a257 u0_a257  635 Nov 12 00:56 build/tides/RuntimeConfig.h
+-rw-------. 1 u0_a257 u0_a257 5.7K Nov 12 01:46 build/tides/data_sections_init.cpp
+-rw-------. 1 u0_a257 u0_a257 4.2K Nov 12 01:46 build/tides/data_sections_init_blobs.S
+-rw-------. 1 u0_a257 u0_a257  54K Nov 12 01:53 build/tides/guest_symbol_table.cpp
+
+========== TRANSLATED SHARD INCLUDES ==========
+// Translator-owned content-addressed aggregate shard; do not edit.
+#include "abi_bridge.h"
+#include "shard_e61d5a37e8d79184958fc15b_traits.h"
+#define MKW_STATIC_TRANSLATED_CALL(Target, Entry, Context) do { ApplyRuntimeCallOptions(Target, Context); Entry(Context); } while (false)
+#line 1 "func_802E1A30.cpp"
+#include <cstdint>
+#include "ppc_runtime.h"
+#include "abi_bridge.h"
+#include "memory.h"
+#include "recomp_mod_loader.h"
+
+extern "C" void func_802E1A30(CpuContext* MKW_RESTRICT ctx)
+{
+    uint32_t cr0_0 = 0;
+    uint32_t r0_rot_0 = 0;
+    uint32_t r6_addr_0 = 0;
+
+    uint32_t r0 = ctx->gpr[0];
+    uint32_t r3 = ctx->gpr[3];
+    uint32_t r4 = ctx->gpr[4];
+    uint32_t r5 = ctx->gpr[5];
+    uint32_t r6 = ctx->gpr[6];
+    uint32_t cr = ctx->cr;
+    uint32_t xer = ctx->xer;
+
+    goto loc_802E1A30;
+
+loc_802E1A30:
+{
+    r6 = 0x80670000u;
+}
+
+loc_802E1A38:
+{
+    r0_rot_0 = PpcRotl32Inline(static_cast<uint32_t>(r3), static_cast<uint32_t>(2));
+    r0 = (r0_rot_0 & 1020);
+    r6 = (r6 + -25840);
+    r6_addr_0 = (r6 + r0);
+    r6 = MemoryInline::FlatRead32(r6_addr_0);
+    if ((static_cast<uint32_t>(r4) != static_cast<uint32_t>(48))) {
+        goto loc_802E1A54;
+    }
+}
+
+loc_802E1A48:
+{
+    r0 = MemoryInline::FlatRead32((r6 + 2300));
+    SetCRResident(cr, xer, 0, static_cast<int32_t>(r0), static_cast<int32_t>(0));
+}
+
+loc_802E1A50:
+{
+    if (((cr & 0x20000000u) != 0)) {
+        goto loc_802E1B40;
+    }
+}
+
+loc_802E1A54:
+{
+}
+
+loc_802E1A58:
+{
+    if ((static_cast<uint32_t>(r4) != static_cast<uint32_t>(49))) {
+        goto loc_802E1A68;
+    }
+}
+
+loc_802E1A5C:
+{
+    r0 = MemoryInline::FlatRead32((r6 + 2300));
+    SetCRResident(cr, xer, 0, static_cast<uint32_t>(r0), static_cast<uint32_t>(1));
+}
+
+loc_802E1A64:
+{
+    if (((cr & 0x20000000u) != 0)) {
+        goto loc_802E1B40;
+    }
+}
+
+loc_802E1A68:
+{
+}
+
+loc_802E1A6C:
+{
+    if ((static_cast<uint32_t>(r4) != static_cast<uint32_t>(50))) {
+        goto loc_802E1A8C;
+    }
+}
+
+loc_802E1A70:
+{
+    r0 = MemoryInline::FlatRead32((r6 + 2300));
+    SetCRResident(cr, xer, 0, static_cast<uint32_t>(r0), static_cast<uint32_t>(3));
+}
+
+loc_802E1A78:
+{
+
+========== ROOT CMAKE GENERATED PATHS ==========
+    # Frame interpolation filters guest NaN/Inf matrices out of a std::sort
+    # comparator, which makes its std::isfinite guards load-bearing for memory
+    # safety, not just match quality. -ffinite-math-only (part of -ffast-math
+    # above) folds those guards to constants and poisons NaN float arguments
+    # via nofpclass, so this one file opts back out of the finite-math
+    # assumption; the file #errors if built without this. Source-scoped
+    # COMPILE_OPTIONS append after the target options, so this overrides the
+    # target's -ffast-math for exactly this TU.
+    if(TARGET aurora_gx)
+        set_source_files_properties("${MKW_AURORA_DIR}/lib/gx/frame_interpolation.cpp"
+            TARGET_DIRECTORY aurora_gx
+            PROPERTIES COMPILE_OPTIONS "-fno-finite-math-only")
+    endif()
+
+    if(MKW_NATIVE_PREBUILT_EXPORT_DIR)
+        include("${CMAKE_CURRENT_LIST_DIR}/cmake/NativePrebuiltExport.cmake")
+    endif()
+endif()
+
+# Everything from here down is this project's own code, so this is where the
+# project definitions enter the directory scope. A directory-scoped definition
+# seeds the COMPILE_DEFINITIONS of targets as they are created, which means:
+#   * aurora-main and its third-party tree were added above -> unaffected;
+#   * mkw_runtime_common, the translated shard libraries and the products in
+#     cmake/PublicProducts.cmake are all created below (that file is include()d,
+#     not add_subdirectory()d, so it shares this directory scope) -> they pick
+#     the definitions up exactly as before.
+if(MKW_PROJECT_COMPILE_DEFINITIONS)
+    add_compile_definitions(${MKW_PROJECT_COMPILE_DEFINITIONS})
+endif()
+
+# Bluetooth passthrough's libusb (Windows: aurora's; Linux: built here; elsewhere none).
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/BtPassthrough.cmake")
+
+# Runtime sources. CONFIGURE_DEPENDS costs one glob re-check per build (measured
+# at ~55 ms across the 100+ globs this build already re-verifies for SDL), and it
+# buys correctness: without it, a newly added src/*.cpp that is not referenced by
+# a registration file is silently never compiled and never errors. The stale-glob
+# failure mode is worth far more than the milliseconds.
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp")
+
+# Public WiiCompiled product graph.
+#
+# The translator owns the translated build graph. Mario Kart's profile-neutral
+# functions are compiled once into mkw_base_shared; only callers whose direct
+# ABI differs between profiles receive small base/RR variants.
+
+set(DATA_INIT_FILE "${MKW_RUNTIME_SOURCE_DIR}/../generated/data_sections_init.cpp")
+set(DATA_INIT_BLOB_ASM "${MKW_RUNTIME_SOURCE_DIR}/../generated/data_sections_init_blobs.S")
+if(EXISTS "${DATA_INIT_FILE}")
+    list(APPEND SOURCES "${DATA_INIT_FILE}")
+endif()
+# Crash-report symbolization table emitted by generate-data-init. The stub
+# (deliberately outside the globbed src/ tree so it is never picked up twice)
+# keeps link succeeding when the generated table has not been produced yet.
+set(GUEST_SYMBOL_TABLE_FILE "${MKW_RUNTIME_SOURCE_DIR}/../generated/guest_symbol_table.cpp")
+if(EXISTS "${GUEST_SYMBOL_TABLE_FILE}")
+    list(APPEND SOURCES "${GUEST_SYMBOL_TABLE_FILE}")
+else()
+    list(APPEND SOURCES "${MKW_RUNTIME_SOURCE_DIR}/cmake/guest_symbol_table_stub.cpp")
+endif()
+if(EXISTS "${DATA_INIT_BLOB_ASM}")
+    enable_language(ASM)
+    set_source_files_properties("${DATA_INIT_BLOB_ASM}" PROPERTIES LANGUAGE ASM SKIP_UNITY_BUILD_INCLUSION ON)
+    list(APPEND SOURCES "${DATA_INIT_BLOB_ASM}")
+endif()
+list(REMOVE_DUPLICATES SOURCES)
+
+if(MKW_PLATFORM_MACOS)
+    find_library(MKW_IOKIT_FRAMEWORK IOKit REQUIRED)
+    find_library(MKW_COREFOUNDATION_FRAMEWORK CoreFoundation REQUIRED)
+    find_library(MKW_COREAUDIO_FRAMEWORK CoreAudio REQUIRED)
+endif()
+
+function(mkw_apply_common_compile_options target)
+    target_compile_options(${target} PRIVATE -O3 -ffast-math -w -pipe)
+endfunction()
+
+function(mkw_apply_translated_compile_options target)
+    target_compile_options(${target} PRIVATE
+        -O2 ${MKW_TRANSLATED_PPC_FP_OPTIONS} -fno-slp-vectorize -w -pipe)
+endfunction()
+
+function(mkw_configure_object_target target)
+    target_include_directories(${target} PRIVATE
+        "${MKW_RUNTIME_SOURCE_DIR}/include"
+        "${MKW_RUNTIME_SOURCE_DIR}/src"
+        # Workspace root, so translator output is spelled "generated/<x>.h"
+        # instead of a ../ chain whose depth depends on the includer.
+        "${MKW_RUNTIME_SOURCE_DIR}/.."
+        "${MKW_RUNTIME_SOURCE_DIR}/../aurora-main/include")
+    target_compile_definitions(${target} PRIVATE
+        TARGET_PC)
+    set_target_properties(${target} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
+endfunction()
+
+# Translated shard TUs are the memory-hungry compiles; everything else in the build is
+# comparatively small. A dedicated Ninja job pool caps how many of them run at once so the
+# global parallelism can use every core for the cheap TUs without the memory ceiling being a
+# guess. The pool depth is per-machine (derived from installed RAM by LocalBuild.ps1) and is
+# deliberately not part of the canonical flag set: it changes scheduling, never output bytes.
+if(MKW_TRANSLATED_COMPILE_JOBS GREATER 0)
+    set_property(GLOBAL APPEND PROPERTY JOB_POOLS "mkw_translated=${MKW_TRANSLATED_COMPILE_JOBS}")
+endif()
+
+function(mkw_bound_translated_compiles target)
+    if(MKW_TRANSLATED_COMPILE_JOBS GREATER 0)
+        set_property(TARGET ${target} PROPERTY JOB_POOL_COMPILE mkw_translated)
+    endif()
+endfunction()
+
+function(mkw_configure_translated_target target)
+    mkw_configure_object_target(${target})
+    mkw_apply_translated_compile_options(${target})
+    mkw_bound_translated_compiles(${target})
+endfunction()
+
+add_library(mkw_runtime_common OBJECT ${SOURCES})
+mkw_configure_object_target(mkw_runtime_common)
+target_compile_features(mkw_runtime_common PRIVATE cxx_std_20)
+target_compile_definitions(mkw_runtime_common PRIVATE
+    if(NOT MKW_DSP_COEFFICIENT_ROM_SHA256 STREQUAL
+       "d7741279c2e8ec5c5fb318f8fbdd6de6bf583520d288e836a5383233a4238179")
+        message(FATAL_ERROR "Wii DSP coefficient ROM hash mismatch: ${MKW_DSP_COEFFICIENT_ROM_SHA256}")
+    endif()
+    add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${MKW_DSP_COEFFICIENT_ROM}" "$<TARGET_FILE_DIR:${target}>/dsp_coef.bin")
+
+    # Aurora imports this portable recipe database into each user's writable
+    # pipeline cache. Keep the upstream filename so its default resourcesPath
+    # lookup works without application-specific configuration.
+    set(MKW_INITIAL_PIPELINE_CACHE
+        "${MKW_RUNTIME_SOURCE_DIR}/assets/pipeline/initial_pipeline_cache.db")
+    if(NOT EXISTS "${MKW_INITIAL_PIPELINE_CACHE}")
+        message(FATAL_ERROR "Missing transferable Aurora pipeline cache: ${MKW_INITIAL_PIPELINE_CACHE}")
+    endif()
+    add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${MKW_INITIAL_PIPELINE_CACHE}"
+        "$<TARGET_FILE_DIR:${target}>/initial_pipeline_cache.db")
+
+    # Non-Windows TLS (runtime/src/hle/net/network_ssl.cpp's mbed TLS path) needs a trusted root
+    # CA bundle to verify server certificates against - Windows gets this for free from the OS via
+    # Schannel, mbed TLS does not ship one itself. Not SHA256-pinned like the DSP ROM above: unlike
+    # a fixed hardware ROM, this bundle is expected to be refreshed periodically as CAs rotate.
+    # Windows gets its trust store from Schannel, so only the platforms that actually build the
+    # mbed TLS path need the bundle beside the executable.
+    if(NOT MKW_PLATFORM_WINDOWS)
+        set(MKW_CA_CERTIFICATE_BUNDLE "${MKW_RUNTIME_SOURCE_DIR}/assets/certs/cacert.pem")
+        if(NOT EXISTS "${MKW_CA_CERTIFICATE_BUNDLE}")
+            message(FATAL_ERROR "Missing TLS root CA bundle: ${MKW_CA_CERTIFICATE_BUNDLE}")
+        endif()
+        add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${MKW_CA_CERTIFICATE_BUNDLE}" "$<TARGET_FILE_DIR:${target}>/cacert.pem")
+    endif()
+endfunction()
+
+if(MKW_PLATFORM_ANDROID)
+    add_library(WiiCompiled SHARED "${MKW_BASE_PRODUCT_SOURCE}" ${MKW_BASE_REGISTRATION_SOURCES})
+else()
+    add_executable(WiiCompiled "${MKW_BASE_PRODUCT_SOURCE}" ${MKW_BASE_REGISTRATION_SOURCES})
+endif()
+mkw_configure_product(WiiCompiled)
+target_precompile_headers(WiiCompiled PRIVATE
+    "${MKW_RUNTIME_SOURCE_DIR}/include/mkw_pch.h")
+if(MKW_PLATFORM_WINDOWS)
+    # The app icon (projects/nsmbw/tools/make_icons.ps1): Explorer, the taskbar and, through SDL's
+    # default of the executable's first icon, the game window. The manifest (1 24) gives the
+    # first-start game picker Common Controls 6 and per-monitor DPI awareness from the start.
+    enable_language(RC)
+    file(TO_CMAKE_PATH "${MKW_RUNTIME_SOURCE_DIR}/assets/icon/nsmbw.ico" MKW_APP_ICON)
+    file(TO_CMAKE_PATH "${MKW_RUNTIME_SOURCE_DIR}/assets/windows/NSMBW.manifest" MKW_APP_MANIFEST)
+    file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/app_icon.rc"
+        "1 ICON \"${MKW_APP_ICON}\"\n1 24 \"${MKW_APP_MANIFEST}\"\n")
+    set_property(SOURCE "${CMAKE_CURRENT_BINARY_DIR}/app_icon.rc" APPEND PROPERTY
+        OBJECT_DEPENDS "${MKW_APP_ICON}" "${MKW_APP_MANIFEST}")
+    target_sources(WiiCompiled PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/app_icon.rc")
+endif()
+if(TARGET mkw_base_sensitive)
+    target_sources(WiiCompiled PRIVATE $<TARGET_OBJECTS:mkw_base_sensitive>)
+endif()
+
+# Dev only, not part of any build by default: extracts a disc image the way the game's Open ISO
+# does (wii_disc.cpp), to compare with Dolphin's Extract Entire Disc.
+add_executable(WiiDiscExtract EXCLUDE_FROM_ALL
+    "${MKW_RUNTIME_SOURCE_DIR}/../projects/nsmbw/tools/WiiDiscExtract.cpp"
+    "${MKW_RUNTIME_SOURCE_DIR}/src/wii_disc.cpp")
+target_include_directories(WiiDiscExtract PRIVATE "${MKW_RUNTIME_SOURCE_DIR}/include")
+
+========== GAME PRODUCT SOURCE ==========
+#include "runtime_product.h"
+
+#ifndef NSMBW_GAME_ID
+#define NSMBW_GAME_ID "SMNE01"  // set by runtime/CMakeLists.txt
+#endif
+
+namespace RuntimeProduct {
+namespace {
+
+constexpr std::string_view kGameId = NSMBW_GAME_ID;
+// Newer Super Mario Bros. Wii (projects/nsmbw/recomp-newer.yml): translated from v1.30's code for
+// the USA, whose DLCodeUS_1.bin is this size; another version runs other code.
+constexpr bool kNewer = kGameId == "SMNE03";
+
+} // namespace
+
+const Descriptor& Active() noexcept {
+    static constexpr Descriptor descriptor = kNewer
+        ? Descriptor{
+              Kind::BaseGame,
+              "Newer Super Mario Bros. Wii",
+              kGameId,
+              "Newer Super Mario Bros. Wii v1.30 for the USA (NTSC, SMNE03)",
+              "NewerRes/DLCodeUS_1.bin",
+              463252,
+              "title/00010000/534d4e45/data/NerSMBW.sav",
+              "NewerWiiSaveData",
+              "game-newer",
+          }
+        : Descriptor{
+              Kind::BaseGame,
+              "New Super Mario Bros. Wii",
+              kGameId,
+          };
+    return descriptor;
+}
+
+} // namespace RuntimeProduct
+
+========== NSMBW SPECIFIC RUNTIME REFERENCES ==========
+runtime/src/bt/bt_passthrough.cpp:159:// ---- the fake adapter (NSMBW_BT_FAKE_ADAPTER=1): every HCI command succeeds, nothing ever connects.
+runtime/src/bt/bt_passthrough.cpp:160:// NSMBW_BT_FAKE_SYNC_AT=<seconds>: it also presses the sync button that long after it starts. ----
+runtime/src/bt/bt_passthrough.cpp:215:        const char* syncAt = std::getenv("NSMBW_BT_FAKE_SYNC_AT");
+runtime/src/bt/bt_passthrough.cpp:245:    const char* fake = std::getenv("NSMBW_BT_FAKE_ADAPTER");
+runtime/src/bt/bt_passthrough.cpp:248:        result.adapter = "a fake adapter (NSMBW_BT_FAKE_ADAPTER=1)";
+runtime/src/bt/bt_passthrough.cpp:250:#if defined(NSMBW_BT_PASSTHROUGH)
+runtime/src/bt/bt_passthrough.cpp:289:#if defined(NSMBW_BT_PASSTHROUGH)
+runtime/src/bt/bt_passthrough.cpp:301:            DecideOffLocked("deterministic mode (NSMBW_DETERMINISTIC)");
+runtime/src/bt/bt_passthrough.cpp:302:        } else if (const char* script = std::getenv("NSMBW_INPUT_SCRIPT"); script != nullptr && *script != '\0') {
+runtime/src/bt/bt_passthrough.cpp:303:            DecideOffLocked("an input script (NSMBW_INPUT_SCRIPT) drives the game");
+runtime/src/bt/bt_passthrough.cpp:329:#if defined(NSMBW_BT_PASSTHROUGH)
+runtime/src/bt/bt_transport.h:5:// NSMBW_BT_FAKE_ADAPTER=1) answers every command itself, to run the game's Bluetooth stack
+runtime/src/bt/bt_usb_libusb.cpp:7:#if defined(NSMBW_BT_PASSTHROUGH)
+runtime/src/bt/bt_usb_libusb.cpp:396:#endif  // NSMBW_BT_PASSTHROUGH
+runtime/src/det_hash.cpp:38:        if (const char* hash = std::getenv("NSMBW_DET_HASH"); hash != nullptr && *hash != '\0') {
+runtime/src/det_hash.cpp:55:        if (const char* dump = std::getenv("NSMBW_DET_DUMP"); dump != nullptr && *dump != '\0') {
+runtime/src/display_settings.cpp:23:// NSMBW (SMNE01 rev 1) EGG::Screen statics. sTVModeInfo holds one record per TV mode,
+runtime/src/display_settings.cpp:27:// rebuild, and NSMBW registers no TV-mode change callback, so doing those writes from here is what
+runtime/src/display_settings.cpp:37:// NSMBW's own copy of the 16:9 size {f32 width, f32 height}, taken from the record by d_screen.cpp's
+runtime/src/display_settings.cpp:224:// NSMBW_DUMP_SCREENS=<frame>: at that frame, log every EGG::Screen in guest memory (found by the
+runtime/src/display_settings.cpp:228:        const char* value = std::getenv("NSMBW_DUMP_SCREENS");
+runtime/src/display_settings.cpp:385:// The game's globals, below r13 (SMNE01 rev 1).
+runtime/src/dynamic_aspect.cpp:119:    // NSMBW: the draw/offscreen lists are Mario Kart's (0x809C1830/0x809C183C fall inside
+runtime/src/dynamic_aspect.cpp:120:    // NSMBW's d_enemiesNP); nothing to sweep until NSMBW's screens are mapped.
+runtime/src/dynamic_aspect.cpp:121:#if 0  // NSMBW: MKW gfx node lists
+runtime/src/dynamic_aspect.cpp:136:    // NSMBW: these EGG::Screen records, projection scales and refresh calls are Mario Kart
+runtime/src/dynamic_aspect.cpp:138:    // side stays untouched until NSMBW's EGG::Screen statics are mapped.
+runtime/src/dynamic_aspect.cpp:142:#if 0  // NSMBW: MKW EGG::Screen records
+runtime/src/fiber_manager.cpp:50:constexpr uint32_t kThreadQueueArrayAddr = 0x8038ec50u;          // RunQueue (NSMBW)
+runtime/src/fiber_manager.cpp:51:constexpr uint32_t kSchedulerPendingFlagAddr = 0x8042a708u;      // RunQueueBits (NSMBW)
+runtime/src/fiber_manager.cpp:52:constexpr uint32_t kSchedulerReschedCounterAddr = 0x8042a704u;   // RunQueueHint (NSMBW)
+runtime/src/fiber_manager.cpp:53:constexpr uint32_t kSchedulerIdleFlagAddr = 0x8042a700u;         // Reschedule (NSMBW)
+runtime/src/fiber_manager.cpp:480:    // The guest OS's own view (NSMBW addresses): which threads it can run and who sleeps on the VI
+runtime/src/fiber_manager.cpp:621:    while (entryPoint == 0x802ba860) { // EGG::Thread::start(void*) in NSMBW
+runtime/src/font_graves.cpp:212:    if (Get16(d, tglp + 10) != 2) return 0;  // IA4 sheets only (the message and Mario fonts)
+runtime/src/game_folder.cpp:32:// The game this build was translated from (runtime_product.h: the original, or a mod such as Newer).
+runtime/src/game_folder.cpp:128:    if (RuntimeProduct::Active().gameId == "SMNE01" && id == "SMNE03") {
+runtime/src/game_folder.cpp:129:        return "That is Newer Super Mario Bros. Wii (SMNE03): open it with NewerSMBW, the release's other "
+runtime/src/game_folder.cpp:132:    if (RuntimeProduct::Active().gameId == "SMNE03" && id == "SMNE01") {
+runtime/src/game_folder.cpp:133:        return "That is New Super Mario Bros. Wii (SMNE01): open it with NSMBW, the release's other program. "
+runtime/src/game_folder.cpp:188:    text.mods = RuntimeProduct::Active().gameId == "SMNE01";  // the original game's build only
+runtime/src/game_folder.cpp:400:    if (product.gameId == "SMNE01" && id == "SMNP01" && revision == 1) {
+runtime/src/game_folder.cpp:455:    // Each is the original's LZ file or, decompressed, the original's .rel. Newer's disc has the same.
+runtime/src/game_folder.cpp:515:    {"SMNE01", "6d755ec24c395fee600a856a85785e0e99c0b7ecb680d573a6cdd1aa6f7beee7"},  // USA rev 1
+runtime/src/game_folder.cpp:573:    // install shares Documents\MarioWiiSaveData, so this is how two installs play two games (say the
+runtime/src/guest_profiler.cpp:1:// NSMBW_PROFILE=<start s>:<length s>: a sampling profiler for the game thread. From <start> seconds
+runtime/src/guest_profiler.cpp:8:// spends time in. On Android set it with `adb shell setprop debug.nsmbw.env NSMBW_PROFILE=20:20`.
+runtime/src/guest_profiler.cpp:69:// The last present, for NSMBW_PROFILE_HITCH.
+runtime/src/guest_profiler.cpp:78:// NSMBW_PROFILE_HITCH=<ms>: the threshold (in ns) past which no present means a hitch, else 0.
+runtime/src/guest_profiler.cpp:81:        const char* value = std::getenv("NSMBW_PROFILE_HITCH");
+runtime/src/guest_profiler.cpp:245:// NSMBW_PROFILE_THREAD=<name>: the thread of this process with that description (SetThreadDescription;
+runtime/src/guest_profiler.cpp:286:    if (const char* name = std::getenv("NSMBW_PROFILE_THREAD"); name != nullptr && *name != 0) {
+runtime/src/guest_profiler.cpp:293:    // NSMBW_PROFILE_HITCH=<ms>: keep only the samples taken while no frame has been presented for that
+runtime/src/guest_profiler.cpp:565:// NSMBW_PROFILE_THREAD=<name>: sample the thread of that name (as /proc lists it, e.g. FrameWorker)
+runtime/src/guest_profiler.cpp:586:    if (const char* name = std::getenv("NSMBW_PROFILE_THREAD"); name != nullptr && *name != 0) {
+runtime/src/guest_profiler.cpp:608:            continue;  // NSMBW_PROFILE_HITCH: only while no frame has been presented for that long
+runtime/src/guest_profiler.cpp:662:    const char* value = std::getenv("NSMBW_PROFILE");
+runtime/src/hd_texture_pack.cpp:59:constexpr const char* kMediaFirePage = "https://www.mediafire.com/file/goz5ep7dgz4ripo/NSMBW_HD_v2.81_PNG.7z/file";
+runtime/src/hd_texture_pack.cpp:62:// Inside the archive: NSMBW_HD_v2.81_PNG/SMN/... are the textures (Dolphin's Load/Textures/SMN). Its
+runtime/src/hd_texture_pack.cpp:64:constexpr const char* kArchiveRoot = "NSMBW_HD_v2.81_PNG/";
+runtime/src/hd_texture_pack.cpp:65:constexpr const char* kPackFolder = "NSMBW_HD_v2.81";
+runtime/src/hd_texture_pack.cpp:131:    HINTERNET session = WinHttpOpen(L"NSMBW", WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY, WINHTTP_NO_PROXY_NAME,
+runtime/src/hd_texture_pack.cpp:134:        session = WinHttpOpen(L"NSMBW", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME,
+runtime/src/hd_texture_pack.cpp:199:    int code = Run({"curl", "-fsSL", "--connect-timeout", "15", "-A", "NSMBW", "-o", out.string(), url});
+runtime/src/hd_texture_pack.cpp:201:        code = Run({"wget", "-q", "-T", "30", "-U", "NSMBW", "-O", out.string(), url});
+runtime/src/hd_texture_pack.cpp:237:        if (source == 0 && std::getenv("NSMBW_HDPACK_NO_DRIVE") != nullptr) {
+runtime/src/hd_texture_pack.cpp:421:    const fs::path archive = staging / "NSMBW_HD_v2.81_PNG.7z";
+runtime/src/hle/audio/audio.cpp:27:constexpr uint32_t kAIInitializedAddr = 0x8042A4B8u;          // __AI_init_flag (NSMBW)
+runtime/src/hle/audio/audio.cpp:28:constexpr uint32_t kAICallbackBusyAddr = 0x8042A4BCu;         // __AID_Active (NSMBW)
+runtime/src/hle/audio/audio.cpp:29:constexpr uint32_t kAICallbackStackSwitchAddr = 0x8042A4ECu;  // __CallbackStack (NSMBW)
+runtime/src/hle/audio/audio.cpp:30:constexpr uint32_t kAIDmaCallbackAddr = 0x8042A4F0u;          // __AID_Callback (NSMBW)
+runtime/src/hle/audio/audio.cpp:78:// NSMBW bring-up: the loudest sample of the AI output, reported every ~15 s of 32 kHz stereo for the
+runtime/src/hle/audio/audio.cpp:286:// AIRegisterDMACallback stores the callback in the guest global __AID_Callback (0x8042A4F0 in NSMBW).
+runtime/src/hle/audio/audio.cpp:348:#if 0  // NSMBW: AIGetDSPSampleRate is not linked into NSMBW (was MKW-only)
+runtime/src/hle/audio/audio.cpp:363:#if 0  // NSMBW: music ducking hooks MKW nw4r::snd::SoundPlayer::SetVolume via an MKW sound-manager pointer; not ported to NSMBW yet
+runtime/src/hle/audio/audio.cpp:394:// NSMBW_LOG_FPS: time in the speaker push and in the AI DMA callback (guest AX code), and blocks.
+runtime/src/hle/audio/ax_dsp.h:27:// NSMBW_LOG_FPS: since the last call, time spent mixing on the worker, time the guest waited for it,
+runtime/src/hle/audio/ax_dsp.h:37:// NSMBW: the AI block at [addr, addr + bytes) as the speakers should play it, with the Music and
+runtime/src/hle/audio/ax_effects.cpp:27:constexpr uint32_t kOneConstantAddr = 0x8042DFF0u;   // 1.0f (NSMBW .sdata2, loaded by AXFXReverbStdExpCallback)
+runtime/src/hle/audio/ax_effects.cpp:28:constexpr uint32_t kScaleConstantAddr = 0x8042DFF4u; // 0.6f send pre-scale (NSMBW)
+runtime/src/hle/audio/ax_internal.h:34:constexpr uint32_t kAxDspTaskAddr = 0x8037CD00u;    // AX DSPTaskInfo passed to DSPAddTask by __AXOutInitDSP (NSMBW)
+runtime/src/hle/audio/ax_internal.h:35:constexpr uint32_t kDspInitializedAddr = 0x8042AA18u;    // __DSP_init_flag (NSMBW)
+runtime/src/hle/audio/ax_internal.h:36:constexpr uint32_t kDspAssertPendingAddr = 0x8042AA20u;  // __DSP_rude_task_pending (NSMBW)
+runtime/src/hle/audio/ax_internal.h:37:constexpr uint32_t kDspAssertTaskAddr = 0x8042AA24u;     // __DSP_rude_task (NSMBW)
+runtime/src/hle/audio/ax_internal.h:38:constexpr uint32_t kDspCurrentTaskAddr = 0x8042AA2Cu;    // __DSP_last_task (offset-matched to MKW) (NSMBW)
+runtime/src/hle/audio/ax_internal.h:39:constexpr uint32_t kDspFirstTaskAddr = 0x8042AA30u;      // __DSP_first_task (NSMBW)
+runtime/src/hle/audio/ax_internal.h:40:constexpr uint32_t kDspRunningTaskAddr = 0x8042AA34u;    // __DSP_curr_task (offset-matched to MKW) (NSMBW)
+runtime/src/hle/audio/ax_internal.h:41:constexpr uint32_t kAxIramMmemAddr = 0x8032F400u;   // axDspSlave microcode (NSMBW)
+runtime/src/hle/audio/ax_internal.h:42:constexpr uint32_t kAxDramMmemAddr = 0x8037CD60u;   // __AXDramImage (NSMBW)
+runtime/src/hle/audio/ax_internal.h:47:constexpr uint32_t kAxDoneCallback = 0x801A1CC0u;    // __AXDSPDoneCallback (task+0x30 in NSMBW __AXOutInitDSP)
+runtime/src/hle/audio/ax_memory.cpp:71:    Memory::TryWrite32(0x8042AA28u, 0);  // __DSP_tmp_task (NSMBW)
+runtime/src/hle/audio/ax_mix.cpp:39:// NSMBW_LOG_FPS: the mix worker's time mixing, the guest's time waiting for it, and its last CPU.
+runtime/src/hle/audio/ax_mix.cpp:1068:        // A music voice (one on the music sound players, AxVoiceTags; and any stream, NSMBW's music being
+runtime/src/hle/audio/ax_mix.cpp:1712:        Memory::Write32(r13 - 0x50e0u, 1);  // __AXDSPInitFlag (NSMBW)
+runtime/src/hle/audio/ax_mix.cpp:1713:        Memory::Write32(r13 - 0x50e4u, 0);  // __AXDSPDoneFlag (NSMBW)
+runtime/src/hle/audio/ax_voice_tags.cpp:1:// ax_voice_tags.cpp - see ax_voice_tags.h. USA (SMNE01 rev 1) addresses; Newer runs the same DOL code.
+runtime/src/hle/audio/ax_voice_tags.cpp:118:// NSMBW_LOG_AUDIO_TAGS: a line whenever a voice starts playing another sound.
+runtime/src/hle/audio/ax_voice_tags.cpp:120:    static const bool log = std::getenv("NSMBW_LOG_AUDIO_TAGS") != nullptr;
+runtime/src/hle/audio/ax_voice_tags.cpp:170:    static std::array<uint32_t, kMaxVoices> s_loggedId{};  // NSMBW_LOG_AUDIO_TAGS
+runtime/src/hle/audio/ax_voice_tags.h:6:// NSMBW: which volume slider each AX voice follows, found from the nw4r sound that owns it. Reads
+runtime/src/hle/audio/ax_voice_tags.h:33:// midway point, 1-down, scores...) stay effects. Base and Newer have the same sound table.
+runtime/src/hle/audio/axfx_reverb_native.cpp:12:// NSMBW_REVERB_COMPARE=1 runs both on every block (the translated result is kept) and logs how far
+runtime/src/hle/audio/axfx_reverb_native.cpp:103:    // For NSMBW_REVERB_COMPARE: every range a block may write, with its kind (0 int, 1 float).
+runtime/src/hle/audio/axfx_reverb_native.cpp:246:// NSMBW_REVERB_COMPARE: run the native block on a snapshot, put the snapshot back, run the
+runtime/src/hle/audio/axfx_reverb_native.cpp:286:    static const bool compare = std::getenv("NSMBW_REVERB_COMPARE") != nullptr;
+runtime/src/hle/audio/axfx_reverb_native.cpp:321:    if (DetClock::Enabled() || std::getenv("NSMBW_NO_COUCH_FASTPATHS") != nullptr) {
+runtime/src/hle/egg_decomp.cpp:72:#if 0  // NSMBW: NSMBW has no EGG::Decomp::decodeSZS (it uses EGG::StreamDecomp*); MKW-only fast path
+runtime/src/hle/esp.cpp:3:// We stub these to return Mario Kart Wii's title ID directly.
+runtime/src/hle/esp.cpp:14:static constexpr uint32_t MKW_TITLE_ID_HI = 0x00010000;  // NSMBW disc title 00010000-534D4E45 (tmd.bin); name kept
+runtime/src/hle/gameplay_options.cpp:3:// directly, and Newer hooks some of them itself.
+runtime/src/hle/gameplay_options.cpp:150:// same. The numbers are the card's own order: 0 Mario (mkwcat's code shows him as its 4), then 3 is
+runtime/src/hle/gameplay_options.cpp:281:bool IsNewer() {
+runtime/src/hle/gameplay_options.cpp:296:// The Power-Up list: the game's own power-up numbers, then the Star (not one of them) and, on Newer,
+runtime/src/hle/gameplay_options.cpp:354:    const bool ours = !IsNewer() && MapIsTheGames() && Memory::TryRead32(kWmFigures, map) && InGuestRam(map) &&
+runtime/src/hle/gameplay_options.cpp:368:    return IsNewer() ? kChoiceHammer + 1 : kChoiceStar + 1;
+runtime/src/hle/gameplay_options.cpp:390:// Automated runs: NSMBW_GIVE_POWERUP="<power-up>[@<ms>]" presses Power-Up that long after the
+runtime/src/hle/gameplay_options.cpp:397:        if (const char* value = std::getenv("NSMBW_GIVE_POWERUP"); value != nullptr && *value != '\0') {
+runtime/src/hle/gameplay_options.cpp:428:// The character screen's cards have portraits of Luigi and the Toads and none of Mario, who could
+runtime/src/hle/gameplay_options.cpp:431:// of the others' (150x150) and, when a card shows Mario, put in the place of its Luigi picture's
+runtime/src/hle/gameplay_options.cpp:432:// texture. 7 and 8 are what mkwcat's code shows for Mario, free and taken.
+runtime/src/hle/gameplay_options.cpp:439:constexpr int kMarioSide = 128, kMarioX = 11, kMarioY = 14;
+runtime/src/hle/gameplay_options.cpp:446:std::vector<uint8_t> LoadMarioPortrait() {
+runtime/src/hle/gameplay_options.cpp:464:        constexpr size_t kPixels = kMarioSide * kMarioSide * 2;
+runtime/src/hle/gameplay_options.cpp:465:        if (size != (kMarioSide << 16 | kMarioSide) || format != 5 || data + kPixels > arc.size()) {
+runtime/src/hle/gameplay_options.cpp:469:        for (int y = 0; y < kMarioSide; ++y) {
+runtime/src/hle/gameplay_options.cpp:470:            for (int x = 0; x < kMarioSide; ++x) {
+runtime/src/hle/gameplay_options.cpp:471:                const size_t from = data + (static_cast<size_t>(y / 4) * (kMarioSide / 4) + x / 4) * 32 + (y % 4 * 4 + x % 4) * 2;
+runtime/src/hle/gameplay_options.cpp:472:                const int dx = x + kMarioX, dy = y + kMarioY;
+runtime/src/hle/gameplay_options.cpp:573:    static const std::vector<uint8_t> s_portrait = LoadMarioPortrait();
+runtime/src/hle/gameplay_options.h:19:// The list (PowerUpName): the game's own power-up numbers, then a Star, then on Newer its Hammer Suit.
+runtime/src/hle/gx/depth_blur.cpp:23:// NSMBW_LOG_DEPTH_BLUR: a line when the depth blur starts drawing (after a second without it), to
+runtime/src/hle/gx/depth_blur.cpp:26:    static const bool log = std::getenv("NSMBW_LOG_DEPTH_BLUR") != nullptr;
+runtime/src/hle/gx/gx_copy.cpp:189:    // NSMBW_ASYNC_COPY) are queued behind those draws instead, so there is nothing to wait for.
+runtime/src/hle/gx/gx_copy.cpp:206:    // NSMBW_LOG_COPY_FRAMES: per frame, the texture copies made (size, format, source, destination),
+runtime/src/hle/gx/gx_copy.cpp:208:    if (static const bool logFrames = std::getenv("NSMBW_LOG_COPY_FRAMES") != nullptr; logFrames) {
+runtime/src/hle/gx/gx_copy.cpp:227:    // NSMBW_LOG_COPIES: each distinct texture copy (destination size, format, source rectangle) once,
+runtime/src/hle/gx/gx_copy.cpp:229:    if (static const bool logCopies = std::getenv("NSMBW_LOG_COPIES") != nullptr; logCopies) {
+runtime/src/hle/gx/gx_dl.cpp:209:static inline void EmitLytDrawQuad(uint32_t posAddr, uint32_t sizeAddr, int texCoordCount,
+runtime/src/hle/gx/gx_dl.cpp:1318:            // NSMBW: remembered too, so the next call skips the walk (G3D's material lists are
+runtime/src/hle/gx/gx_dl.cpp:1500:extern "C" void nw4r__lyt__detail__DrawQuad_800847c0(CpuContext* ctx) {
+runtime/src/hle/gx/gx_dl.cpp:1512:    EmitLytDrawQuad(ctx->gpr[3], ctx->gpr[4], static_cast<int32_t>(ctx->gpr[5]), ctx->gpr[6], colorPtr);
+runtime/src/hle/gx/gx_dl.cpp:1515:REGISTER_NATIVE_FUNCTION(0x802B6C80, nw4r__lyt__detail__DrawQuad_800847c0);  // NSMBW: DrawQuad(VEC2&, Size&, u8, VEC2[4]*, Color*)
+runtime/src/hle/gx/gx_dl.cpp:1517:extern "C" void nw4r__lyt__detail__DrawQuad_80084d20(CpuContext* ctx) {
+runtime/src/hle/gx/gx_dl.cpp:1530:    EmitLytDrawQuad(ctx->gpr[3], ctx->gpr[4], static_cast<int32_t>(ctx->gpr[5]), ctx->gpr[6], colorPtr);
+runtime/src/hle/gx/gx_dl.cpp:1533:REGISTER_NATIVE_FUNCTION(0x802B71E0, nw4r__lyt__detail__DrawQuad_80084d20);  // NSMBW: DrawQuad(..., Color*, u8 alpha)
+runtime/src/hle/gx/gx_egg.cpp:15:#if 0  // NSMBW: HLE fallback for MKW map alias entries; NSMBW translates EGG::DrawGX::SetVtxState normally (MKW data addresses)
+runtime/src/hle/gx/gx_egg.cpp:73:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_egg.cpp:76:#if 0  // NSMBW: EGGDrawGX__SetVtxState is not linked into NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_egg.cpp:117:#if 0  // NSMBW: NSMBW's EGG::LightTexture has no SetupTevFinish (MKW-only)
+runtime/src/hle/gx/gx_egg.cpp:130:#if 0  // NSMBW: MKW EGG::AsyncDisplay::endRender copied EFB->XFB; NSMBW's endRender (0x802BB820, 0x20 bytes) only toggles status bits, so the translated one runs
+runtime/src/hle/gx/gx_fatal_stubs.cpp:1:// Auto-generated GX fatal stubs for NSMBW SMNE01 rev 1 (tools/gen_gx_fatal_stubs.py)
+runtime/src/hle/gx/gx_fifo.cpp:113:// NSMBW: GXBegin with an all-direct vertex format (its tiles, text glyphs, layout and lighting
+runtime/src/hle/gx/gx_fifo.cpp:118:// are. NSMBW_NO_RAW_BEGIN=1 keeps the per-attribute path (A/B).
+runtime/src/hle/gx/gx_fifo.cpp:120:    static const bool off = std::getenv("NSMBW_NO_RAW_BEGIN") != nullptr;
+runtime/src/hle/gx/gx_init.cpp:27:    constexpr uint32_t kFifoObjAddr = 0x8038FB80u;  // FifoObj (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:28:    constexpr uint32_t kGXDataAddr = 0x8038FC00u;   // gxData (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:111:    constexpr uint32_t kGxCurrentThreadPtrAddr = 0x8042a8ccu;  // __GXCurrentThread (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:112:    constexpr uint32_t kGxThreadQueueAddr = 0x8042a8c8u;       // GXOverflowSuspendInProgress (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:113:    constexpr uint32_t kCpuFifoObjAddr = 0x80390224u;  // CPUFifo (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:114:    constexpr uint32_t kGpFifoObjAddr = 0x80390200u;   // GPFifo (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:116:    constexpr uint32_t kFifoWrapFlagAddr = 0x8042a8b8u;   // CPUFifoReady (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:117:    constexpr uint32_t kFifoWrapFlag2Addr = 0x8042a8b9u;  // GPFifoReady (NSMBW)
+runtime/src/hle/gx/gx_init.cpp:146:    constexpr uint32_t kPeThreadQueueAddr = 0x8042a8d8u;  // FinishQueue (NSMBW)
+runtime/src/hle/gx/gx_internal.h:57:constexpr uint32_t kGXDataPtrAddr = 0x8042E188;     // __GXData (NSMBW)
+runtime/src/hle/gx/gx_internal.h:58:constexpr uint32_t kDlFifoAddr = 0x803904D0;        // DisplayListFifo (NSMBW)
+runtime/src/hle/gx/gx_internal.h:63:constexpr uint32_t kGxDrawDoneFlagAddr = 0x8042A8E0;  // DrawDone (NSMBW)
+runtime/src/hle/gx/gx_nsmbw.cpp:1:// gx_nsmbw.cpp - GX entry points New Super Mario Bros. Wii calls that Mario Kart Wii never did.
+runtime/src/hle/gx/gx_nsmbw.cpp:18:// NSMBW reads it while building its warning and message layouts.
+runtime/src/hle/gx/gx_nsmbw.cpp:39:#define NSMBW_GX_POKE_NOOP(addr, name, params, uses)                                        \
+runtime/src/hle/gx/gx_nsmbw.cpp:46:NSMBW_GX_POKE_NOOP(801c4fa0, PokeAlphaMode, (uint32_t func, uint32_t threshold), (func, threshold))
+runtime/src/hle/gx/gx_nsmbw.cpp:48:NSMBW_GX_POKE_NOOP(801c4fb0, PokeAlphaRead, (uint32_t mode), (mode))
+runtime/src/hle/gx/gx_nsmbw.cpp:50:NSMBW_GX_POKE_NOOP(801c4fd0, PokeAlphaUpdate, (uint32_t enable), (enable))
+runtime/src/hle/gx/gx_nsmbw.cpp:52:NSMBW_GX_POKE_NOOP(801c4ff0, PokeBlendMode, (uint32_t type, uint32_t src, uint32_t dst, uint32_t op), (type, src, dst, op))
+runtime/src/hle/gx/gx_nsmbw.cpp:55:NSMBW_GX_POKE_NOOP(801c5050, PokeColorUpdate, (uint32_t enable), (enable))
+runtime/src/hle/gx/gx_nsmbw.cpp:57:NSMBW_GX_POKE_NOOP(801c5070, PokeDstAlpha, (uint32_t enable, uint32_t alpha), (enable, alpha))
+runtime/src/hle/gx/gx_nsmbw.cpp:59:NSMBW_GX_POKE_NOOP(801c5090, PokeDither, (uint32_t dither), (dither))
+runtime/src/hle/gx/gx_nsmbw.cpp:61:NSMBW_GX_POKE_NOOP(801c50b0, PokeZMode, (uint32_t compareEnable, uint32_t func, uint32_t updateEnable),
+runtime/src/hle/gx/gx_nsmbw.cpp:66:#undef NSMBW_GX_POKE_NOOP
+runtime/src/hle/gx/gx_objects.cpp:134:        // offline, like Newer's world map tilesets, leaves +0x14 zero, which reads as I4: trust
+runtime/src/hle/gx/gx_objects.cpp:516:        // A texture object the game copied with memcpy (nw4r's CopiedMatAccess: NSMBW's ride lifts set
+runtime/src/hle/gx/gx_stream_common.h:316:// NSMBW_GX_THREAD=1: the GX thread decodes a list after the game has moved on, and the matrix
+runtime/src/hle/gx/gx_stream_common.h:322:        const char* value = std::getenv("NSMBW_GX_THREAD");
+runtime/src/hle/gx/gx_stubs.cpp:28:#if 0  // NSMBW: GXSetDrawSync is not linked into NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:262:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:267:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:272:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:277:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:282:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:287:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:292:#if 0  // NSMBW: MKW switch-case label; its function is native in NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_texture.cpp:418:#if 0  // NSMBW: GXInitTexObjLODBias is not linked into NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_transform.cpp:86:#if 0  // NSMBW: GXSetZScaleOffset is not linked into NSMBW (was MKW-only)
+runtime/src/hle/gx/gx_transform.cpp:126:    // NSMBW_LOG_ORTHO: each distinct orthographic projection's extent (finding the 2D layer's), and
+runtime/src/hle/gx/gx_transform.cpp:128:    static const bool logOrtho = std::getenv("NSMBW_LOG_ORTHO") != nullptr;
+runtime/src/hle/gx/gx_transform.cpp:173:    static const bool logOrthoV = std::getenv("NSMBW_LOG_ORTHO") != nullptr;
+runtime/src/hle/gx/gx_vertex.cpp:25:// NSMBW: every GXBegin (each background tile, each text glyph) republished the whole vertex
+runtime/src/hle/gx/gx_vertex.cpp:213:#if 0  // NSMBW: MKW switch-artifact alias of GXSetArray (0x8016e1c4); NSMBW's map has no such split
+runtime/src/hle/gx/gx_vertex.cpp:321:PPC_NATIVE_OVERRIDE_VOID(802a35b0, GX__End_80044b30, (), ());  // NSMBW out-of-line GXEnd copy #1 (blr)
+runtime/src/hle/gx/gx_vertex.cpp:324:PPC_NATIVE_OVERRIDE_VOID(802a7c90, GX__End_80048c30, (), ());  // NSMBW out-of-line GXEnd copy #2 (blr)
+runtime/src/hle/gx/light_texture_cache.cpp:17:// NSMBW_LIGHTTEX=verify always runs the game's code and counts repeated keys whose call wrote
+runtime/src/hle/gx/light_texture_cache.cpp:56:        if (DetClock::Enabled() || std::getenv("NSMBW_NO_COUCH_FASTPATHS") != nullptr) {
+runtime/src/hle/gx/light_texture_cache.cpp:59:        const char* value = std::getenv("NSMBW_LIGHTTEX");
+runtime/src/hle/gx/light_texture_cache.cpp:261:// NSMBW_LIGHTTEX=verify: runs the call and checks a repeated key against what skipping would do.
+runtime/src/hle/input/kpad.cpp:69:// KPAD's calc_acc_vertical (0x801EB030 in NSMBW): the remote's attitude in the vertical plane,
+runtime/src/hle/input/kpad.cpp:72:// unit length. New Super Mario Bros. Wii reads its y as the tilt of a sideways remote.
+runtime/src/hle/input/kpad.cpp:374:// KPADReadEx: KPADRead plus an optional s32* error out-parameter. In NSMBW both are thin wrappers
+runtime/src/hle/input/kpad.cpp:433:#if 0  // NSMBW: KPADGetUnifiedWpadStatus is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/pad.cpp:108:#if 0  // NSMBW: PADInit is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/pad.cpp:142:#if 0  // NSMBW: PADRead is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/pad.cpp:150:#if 0  // NSMBW: PADReset is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/pad.cpp:158:#if 0  // NSMBW: PADRecalibrate is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/pad.cpp:169:#if 0  // NSMBW: PADControlMotor is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/wpad.cpp:117:#if 0  // NSMBW: WPADInitSub is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/wpad.cpp:361:#if 0  // NSMBW: WPADStartSimpleSync is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/wpad.cpp:364:#if 0  // NSMBW: WPADStartSimpleSync is not linked into NSMBW (was MKW-only)
+runtime/src/hle/input/wpad.cpp:593:#if 0  // NSMBW: WPADSetSyncDeviceCallback is not linked into NSMBW (was MKW-only)
+runtime/src/hle/net/network_config.cpp:8:#if 0  // NSMBW: NHTTP is not linked into NSMBW
+runtime/src/hle/net/network_config.cpp:11:#if 0  // NSMBW: NHTTP is not linked into NSMBW
+runtime/src/hle/net/network_config.cpp:15:#if 0  // NSMBW: NHTTP is not linked into NSMBW
+runtime/src/hle/net/network_config.cpp:29:#if 0  // NSMBW: NHTTP is not linked into NSMBW
+runtime/src/hle/net/network_config.cpp:74:#if 0  // NSMBW: NHTTPStartup_Reentrant is not linked into NSMBW (was MKW-only)
+runtime/src/hle/net/network_deferred.cpp:630:    constexpr uint32_t kDefaultThreadContextAddr = 0x8038e938u;  // DefaultThread (NSMBW)
+runtime/src/hle/nsmbw_camera.cpp:1:// NSMBW ultrawide: a zone narrower than the widened view sits in the middle of the screen.
+runtime/src/hle/nsmbw_camera.cpp:72:// NSMBW_LOG_CAMERA: about once a second, the screen's centre (what bosses measure from) and the
+runtime/src/hle/nsmbw_camera.cpp:75:    static const bool log = std::getenv("NSMBW_LOG_CAMERA") != nullptr;
+runtime/src/hle/nsmbw_menu_settings.cpp:256:extern "C" void PauseGroupRegister_800c90f0(CpuContext* ctx) {
+runtime/src/hle/nsmbw_menu_settings.cpp:672:REGISTER_NATIVE_FUNCTION_AS(0x800C90F0, PauseGroupRegister_800c90f0, "PauseGroupRegister_800c90f0");
+runtime/src/hle/os/os_alarm.cpp:476:#if 0  // NSMBW: RFL (Mii library) is not linked into NSMBW; this read an MKW RFL manager pointer
+runtime/src/hle/os/os_alarm.cpp:508:#if 0  // NSMBW: RFLiIsWorking is not linked into NSMBW (was MKW-only)
+runtime/src/hle/os/os_font.cpp:1:// NSMBW: system (IPL ROM) font support.
+runtime/src/hle/os/os_font.cpp:3:// NSMBW's dRomFontMgr_c loads the console's ROM font through nw4r::ut::RomFont, which asks the SDK
+runtime/src/hle/os/os_font.cpp:5:// hardware: bit 1 set means a Japanese console (Shift-JIS font), clear means ANSI. Mario Kart Wii
+runtime/src/hle/os/os_font.cpp:18:uint32_t g_fontEncode = kOsFontEncodeAnsi;  // SMNE01 is a North American game
+runtime/src/hle/os/os_font.cpp:29:// OSGetFontEncode (NSMBW 0x801B00A0): the current system-font encoding, ANSI unless the game set one.
+runtime/src/hle/os/os_font.cpp:38:// OSSetFontEncode (NSMBW 0x801B00F0): store a valid encoding and return the previous one.
+runtime/src/hle/os/os_font.cpp:49:// OSInitFont (NSMBW 0x801B0D60) and OSLoadFont (0x801B0480) decode the console's system font, which
+runtime/src/hle/os/os_init.cpp:22:#if 0  // NSMBW: MKW StaticR.rel prolog
+runtime/src/hle/os/os_init.cpp:32:#if 0  // NSMBW: MKW StaticR.rel prolog wrapper (Retro Rewind mod init); NSMBW has no StaticR
+runtime/src/hle/os/os_init.cpp:40:#if 0  // NSMBW: StaticRProlog_RecompModInit is not linked into NSMBW (was MKW-only)
+runtime/src/hle/os/os_init.cpp:100:    constexpr uint32_t kBtmCbBase = 0x803D1B78u;  // btm_cb (NSMBW); BTM_IsDeviceUp reads +0x64E == 5
+runtime/src/hle/os/os_init.cpp:209:    // NSMBW offsets: r13-0x4F64=StmReady, r13-0x4F60=StmImDesc (/dev/stm/immediate),
+runtime/src/hle/os/os_internal.h:27:// NSMBW SMNE01 rev 1 addresses (symbols from the cracked Shield symbol table, converted to E1).
+runtime/src/hle/os/os_interrupt.cpp:396:    // __OSDefaultPowerCallback in NSMBW
+runtime/src/hle/os/os_interrupt.cpp:400:    const uint32_t kCallbackPtrAddr = r13 - 0x4f50u;    // PowerCallback (NSMBW)
+runtime/src/hle/os/os_interrupt.cpp:401:    const uint32_t kHandlerActiveAddr = r13 - 0x4f58u;  // StmEhRegistered (NSMBW)
+runtime/src/hle/os/os_interrupt.cpp:491:    // Sets IPCBufferLo/Hi + Initialized (NSMBW 0x8042ABAC/B0/A0) from __OSGetIPCBufferLo/Hi.
+runtime/src/hle/os/os_interrupt.cpp:495:    uint32_t bufferLo = Memory::Read32(ctx->gpr[13] + -19156); // IPCBufferLo at r13-0x4AD4 (NSMBW)
+runtime/src/hle/os/os_message.cpp:218:#if 0  // NSMBW: OSJamMessage is not linked into NSMBW (was MKW-only)
+runtime/src/hle/os/os_reset.cpp:49:                          "Mario Kart Wii executed PPCHalt, which the console only reaches after an "
+runtime/src/hle/os/os_reset.cpp:96:    std::string details = "Mario Kart Wii reported an OS panic";
+runtime/src/hle/os/os_reset.cpp:143:            "Mario Kart Wii called exit(" + std::to_string(status) + ").";
+runtime/src/hle/os/os_scheduler.cpp:134:// NSMBW_LOG_FPS: time in each step of the idle loop (sleep timers, audio, retrace, fiber timers,
+runtime/src/hle/os/os_sleep.cpp:351:#if 0  // NSMBW: OSSleepTicks is not linked into NSMBW (was MKW-only)
+runtime/src/hle/os/os_sleep.cpp:481:        // NSMBW_LOG_FPS: what dMain::mainThread sleeps on, from where, and for how long.
+runtime/src/hle/os/os_thread.cpp:76:    // Mario Kart Wii's THP decoder threads (0x805529A8 / 0x80552A74) needed GQR presets.
+runtime/src/hle/os/os_thread.cpp:77:    // NSMBW ships no THP video and no THP player code, so no thread entry qualifies.
+runtime/src/hle/sc.cpp:128:// and SpaUS). NSMBW picks its message, layout and Home Button files by it. From the Language setting
+runtime/src/hle/sc.cpp:149:    return LookupProductRegion(0x80343A08u, 5, 13,  // SC area table {code, "JPN"...} (NSMBW)
+runtime/src/hle/sc.cpp:155:#if 0  // NSMBW: SCGetProductCode is not linked into NSMBW; this wrote MKW's SC CODE buffer
+runtime/src/hle/sc.cpp:171:#if 0  // NSMBW: SCGetProductCode is not linked into NSMBW (was MKW-only)
+runtime/src/hle/sc.cpp:183:#if 0  // NSMBW: SCGetProductSN is not linked into NSMBW (was MKW-only)
+runtime/src/hle/sc.cpp:189:    return LookupProductRegion(0x80343A50u, 4, 4,  // SC game-region table {code, "JP"...} (NSMBW)
+runtime/src/hle/sc.cpp:196:// 0x00010004524d4350 ("RMCP", Mario Kart Wii PAL) and reports error code 5.
+runtime/src/hle/sc.cpp:207:#if 0  // NSMBW: OSIsTitleInstalled is not linked into NSMBW (was MKW-only)
+runtime/src/hle/sc.cpp:224:#if 0  // NSMBW: OSCheckInstall is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/dvd.cpp:64:    return RuntimeHle::CurrentGameCode(0x534D4E45u); // SMNE (NSMBW) fallback
+runtime/src/hle/storage/dvd.cpp:231:    if (ram < (3ull << 30) || std::getenv("NSMBW_NO_DVD_PRELOAD") != nullptr) {
+runtime/src/hle/storage/dvd.cpp:238:    // 384 MiB, so the whole disc still fits). Newer's 843 MiB cached in full left a 4 GB Pixel 3 XL
+runtime/src/hle/storage/dvd.cpp:369:                 "\n[dvd] Set [paths] dvd_root in Config.toml to your New Super Mario Bros. Wii, "
+runtime/src/hle/storage/dvd.cpp:376:    details += "\n\nSet [paths] dvd_root in Config.toml to your New Super Mario Bros. Wii "
+runtime/src/hle/storage/dvd.cpp:377:               "(SMNE01 revision 1), extracted with Dolphin's Extract Entire Disc.";
+runtime/src/hle/storage/dvd.cpp:913:    // Discs built by modding tools give empty files the offset of the file after them (Newer's
+runtime/src/hle/storage/dvd.cpp:980:    constexpr uint32_t kQueueBase = 0x803958B0;  // WaitingQueue[4] (NSMBW)
+runtime/src/hle/storage/dvd.cpp:994:    Memory::Write32(0x8042A930, 0); // Canceling (NSMBW)
+runtime/src/hle/storage/dvd.cpp:995:    Memory::Write32(0x8042A934, 0); // ResumeFromHere (NSMBW)
+runtime/src/hle/storage/dvd.cpp:996:    Memory::Write32(0x8042A928, 0); // PausingFlag (NSMBW)
+runtime/src/hle/storage/dvd.cpp:997:    // (MKW also set CancelAllSyncComplete; NSMBW does not link DVDCancelAll, so it has no such flag.)
+runtime/src/hle/storage/dvd.cpp:998:    Memory::Write32(0x8042A964, 1); // Prepared: __DVDPrepareReset polls it (NSMBW)
+runtime/src/hle/storage/dvd.cpp:999:    Memory::Write32(0x8042A9B0, 0); // executing (NSMBW)
+runtime/src/hle/storage/dvd.cpp:1016:    Memory::Write8(0x8042A9F4, 1);   // dvdContextsInited (NSMBW)
+runtime/src/hle/storage/dvd.cpp:1017:    Memory::Write8(0x8042A9F5, 1);   // DVDLowInitCalled (NSMBW)
+runtime/src/hle/storage/dvd.cpp:1018:    Memory::Write32(0x8042A9F0, 0);  // freeDvdContext (NSMBW)
+runtime/src/hle/storage/dvd.cpp:1019:    Memory::Write8(0x8042A95C, 1);   // DVDInitialized (NSMBW)
+runtime/src/hle/storage/dvd.cpp:1023:    constexpr uint32_t kContextBase = 0x80395BE0;  // dvdContexts[4] (NSMBW)
+runtime/src/hle/storage/dvd.cpp:1032:    // This tells the game "Yes, I am Mario Kart Wii"
+runtime/src/hle/storage/dvd.cpp:1082:    // NSMBW: the pause window's Settings button (layout_patch.h), patched into whichever archive the
+runtime/src/hle/storage/layout_patch.cpp:319:    if (std::fabs(y) < 1000.0f) {  // Newer parks the panes it doesn't use at 9999
+runtime/src/hle/storage/layout_patch.cpp:533:        // Newer colours Exit's three slices red: Settings takes Continue's (Btn1_*) instead.
+runtime/src/hle/storage/layout_patch.cpp:683:    if (RuntimeProduct::Active().gameId != "SMNE01" || RuntimeConfigFile::Language() != "it") {
+runtime/src/hle/storage/layout_patch.cpp:738:    // The world map's code is only known in the disc's own build (hle/nsmbw_menu_settings.cpp); Newer
+runtime/src/hle/storage/layout_patch.cpp:740:    if (map && RuntimeProduct::Active().gameId != "SMNE01") {
+runtime/src/hle/storage/layout_patch.cpp:743:    // NSMBW_NO_MENU_PATCH=1: the pause window as the disc has it (comparisons, tests). NSMBW_MENU_PATCH=1
+runtime/src/hle/storage/layout_patch.cpp:745:    const bool forced = std::getenv("NSMBW_MENU_PATCH") != nullptr;
+runtime/src/hle/storage/layout_patch.cpp:746:    if ((DetClock::Enabled() && !forced) || std::getenv("NSMBW_NO_MENU_PATCH") != nullptr) {
+runtime/src/hle/storage/layout_patch.h:6:// NSMBW: the pause window gets a third button, Settings, that is the game's own: its archive
+runtime/src/hle/storage/layout_patch.h:12:// disc's, Newer's or a mod's); an archive whose panes aren't the expected ones is left as it is, and
+runtime/src/hle/storage/layout_patch.h:32:// The patched pause layout's pitch between two buttons, in layout units (70 on the disc, 76 in Newer).
+runtime/src/hle/storage/nand_api.cpp:41:// NSMBW bring-up: trace every NAND call (the async APIs forward to these synchronous ones).
+runtime/src/hle/storage/nand_api.cpp:42:#define NSMBW_NAND_TRACE(...) RT_LOGF(RT_TAG_NAND, "[trace] " __VA_ARGS__)
+runtime/src/hle/storage/nand_api.cpp:112:    // NAND home directory buffer: s_homeDir (NSMBW 0x80395DE0, 0x40 bytes)
+runtime/src/hle/storage/nand_api.cpp:115:    // Mark NAND as initialized: s_libState = 2 (NSMBW 0x8042AA40)
+runtime/src/hle/storage/nand_api.cpp:150:    if (path) NSMBW_NAND_TRACE("NANDOpen '%s' mode %u\n", path, mode);
+runtime/src/hle/storage/nand_api.cpp:232:    NSMBW_NAND_TRACE("NANDOpen -> fd %d (fileInfo 0x%08X)\n", fd, fileInfoPtr);
+runtime/src/hle/storage/nand_api.cpp:240:    NSMBW_NAND_TRACE("NANDClose fileInfo=0x%08X fd=%d\n", fileInfoPtr,
+runtime/src/hle/storage/nand_api.cpp:274:    NSMBW_NAND_TRACE("NANDRead fileInfo=0x%08X fd=%d len=%u\n", fileInfoPtr,
+runtime/src/hle/storage/nand_api.cpp:296:    NSMBW_NAND_TRACE("NANDWrite fileInfo=0x%08X fd=%d len=%u\n", fileInfoPtr,
+runtime/src/hle/storage/nand_api.cpp:354:    if (path) NSMBW_NAND_TRACE("NANDCreate '%s' perm 0x%X attr 0x%X\n", path, perm, attr);
+runtime/src/hle/storage/nand_api.cpp:380:    if (path) NSMBW_NAND_TRACE("NANDDelete '%s'\n", path);
+runtime/src/hle/storage/nand_api.cpp:401:    if (path) NSMBW_NAND_TRACE("NANDCreateDir '%s'\n", path);
+runtime/src/hle/storage/nand_api.cpp:421:#if 0  // NSMBW: NANDCreateDir is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_api.cpp:574:    if (path) NSMBW_NAND_TRACE("NANDGetStatus '%s'\n", path);
+runtime/src/hle/storage/nand_api.cpp:592:#if 0  // NSMBW: NANDGetStatus is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_api.cpp:598:    if (path) NSMBW_NAND_TRACE("NANDGetType '%s'\n", path);
+runtime/src/hle/storage/nand_api.cpp:624:#if 0  // NSMBW: contentFastOpenNAND is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_api.cpp:631:#if 0  // NSMBW: contentReadNAND is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_async.cpp:162:#if 0  // NSMBW: NANDGetLengthAsync is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_async.cpp:186:#if 0  // NSMBW: NANDPrivateSafeOpenAsync is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_async.cpp:196:#if 0  // NSMBW: NANDSafeCloseAsync is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_async.cpp:489:#if 0  // NSMBW: NANDSafeOpen is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_async.cpp:494:// NSMBW's newer SDK writes saves through NANDSimpleSafeOpen(path, info, accType, buf, length) - a thin
+runtime/src/hle/storage/nand_async.cpp:537:#if 0  // NSMBW: NANDSafeClose is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_async.cpp:540:// NSMBW: NANDSimpleSafeClose(info) - wrapper (r4=1) around the internal nandSafeClose; commits the
+runtime/src/hle/storage/nand_fs.cpp:1:// NAND/ISFS HLE: redirects Wii NAND paths (for NSMBW, /title/00010000/534d4e45/data/...) to
+runtime/src/hle/storage/nand_internal.h:44:// NSMBW (SMNE01) title ID: 00010000-534D4E45 (tmd.bin). Mario Kart used 00010004-524D4350.
+runtime/src/hle/storage/nand_isfs.cpp:441:#if 0  // NSMBW: NAND_IOS_OpenBody is not linked into NSMBW (was MKW-only)
+runtime/src/hle/storage/nand_isfs.cpp:844:constexpr uint32_t kIsfsFdSda1Offset = 23824u;              // __fsFd (NSMBW 0x80429970)
+runtime/src/hle/storage/nand_isfs.cpp:845:constexpr uint32_t kIsfsPathSda1Offset = 23816u;            // "/dev/fs" in .sdata (NSMBW 0x80429978)
+runtime/src/hle/storage/nand_isfs.cpp:846:constexpr uint32_t kIpcBufferLoSda1Offset = 19156u;         // IPCBufferLo (NSMBW 0x8042ABAC)
+runtime/src/hle/storage/nand_isfs.cpp:847:constexpr uint32_t kIpcBufferHiSda1Offset = 19152u;         // IPCBufferHi (NSMBW 0x8042ABB0)
+runtime/src/hle/storage/nand_isfs.cpp:848:constexpr uint32_t kIpcArenaLoSda1Offset = 19108u;          // ISFS_OpenLib()::lo (NSMBW 0x8042ABDC)
+runtime/src/hle/storage/nand_isfs.cpp:849:constexpr uint32_t kIpcArenaHiSda1Offset = 19104u;          // ISFS_OpenLib()::hi (NSMBW 0x8042ABE0)
+runtime/src/hle/storage/nand_isfs.cpp:850:constexpr uint32_t kIsfsHeapHandleSda1Offset = 19100u;      // hId (NSMBW 0x8042ABE4)
+runtime/src/hle/storage/nand_isfs.cpp:851:constexpr uint32_t kIsfsHeapBaseSda1Offset = 19116u;        // ISFS heap base (NSMBW 0x8042ABD4)
+runtime/src/hle/storage/nand_isfs.cpp:852:constexpr uint32_t kIsfsHeapInitializedSda1Offset = 19120u; // __fsInitialized (NSMBW 0x8042ABD0)
+runtime/src/hle/strap_scene.cpp:17:#if 0  // NSMBW: MKW StrapScene::CheckInput skip; NSMBW's strap screen is dWiiStrap_c (not ported yet)
+runtime/src/hle/task_thread.cpp:7:#if 0  // NSMBW: MKW-only. NSMBW links no EGG::TaskThread and no THP player (no .thp files on its disc).
+runtime/src/hle/task_thread.cpp:210:#endif  // NSMBW: end of MKW EGG::TaskThread / THP player HLE
+runtime/src/hle/task_thread.cpp:211:#if 0  // NSMBW: MKW EGG::TaskThread / THP movie player; NSMBW has neither
+runtime/src/hle/trk.cpp:14:#if 0  // NSMBW: Stub is not linked into NSMBW (was MKW-only)
+runtime/src/hle/vi.cpp:159:constexpr uint32_t kViInitializedFlagAddr   = 0x8042a7c0;  // IsInitialized (NSMBW)
+runtime/src/hle/vi.cpp:160:constexpr uint32_t kViTvFormatAddr          = 0x8042a830;  // CurrTvMode (NSMBW)
+runtime/src/hle/vi.cpp:161:constexpr uint32_t kViRenderWidthAddr       = 0x8038fae4;  // HorVer.DispSizeX (NSMBW)
+runtime/src/hle/vi.cpp:162:constexpr uint32_t kViRenderHeightAddr      = 0x8038fae6;  // HorVer.DispSizeY (NSMBW)
+runtime/src/hle/vi.cpp:163:constexpr uint32_t kViXfbWidthAddr          = 0x8038faf2;  // HorVer.FBSizeX (NSMBW)
+runtime/src/hle/vi.cpp:164:constexpr uint32_t kViXfbHeightAddr         = 0x8038fafc;  // HorVer+0x1C (PanSizeY) (NSMBW)
+runtime/src/hle/vi.cpp:165:constexpr uint32_t kViRetraceCountAddr      = 0x8042a86c;  // retraceCount (NSMBW); // matches VIWaitForRetrace/handler
+runtime/src/hle/vi.cpp:166:constexpr uint32_t kViTimingGuardAddr       = 0x8042a7cc;  // IsInitialized+0xC = __VIDimming_All_Clear in NSMBW (offset-matched; MKW name unverified)
+runtime/src/hle/vi.cpp:167:constexpr uint32_t kViPreRetraceCallback    = 0x8042a840;  // PreCB (NSMBW)
+runtime/src/hle/vi.cpp:168:constexpr uint32_t kViPostRetraceCallback   = 0x8042a83c;  // PostCB (NSMBW)
+runtime/src/hle/vi.cpp:169:constexpr uint32_t kViNextFrameBufferAddr   = 0x8042a828;  // CurrBufAddr in the SDK layout (offset-matched to MKW) (NSMBW)
+
+========== ANDROID APP CONFIG ==========
+android/app/build.gradle
+android/app/src/debug/AndroidManifest.xml
+android/app/src/main/AndroidManifest.xml
+android/build.gradle
+android/settings.gradle
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.wither.nsmbw'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.wither.nsmbw'
+        // Android 8.0 and up: the native side calls memfd_create itself (or uses ashmem) and looks the
+        // newer Choreographer calls up at run time.
+        minSdk 28
+        targetSdk 34
+        versionCode 23
+        versionName '0.5.0'
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // Personal builds: sign with the local debug key so the APK installs directly.
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    lint {
+        // Release builds skip lint's vital checks: this machine builds offline, without lint's jars.
+        checkReleaseBuilds false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main {
+            // libmain.so and the runtime's data files are staged by tools/stage-android.ps1 from
+            // the native build (wiicompiled/android-build); they are not checked in.
+            jniLibs.srcDirs = ['../native/jniLibs']
+            assets.srcDirs = ['../native/assets']
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            // Keep libmain.so uncompressed and page-aligned in the APK so it is mapped in place.
+            useLegacyPackaging false
+        }
+    }
+}
+
+========== RETRO REWIND STATUS ==========
+set(MKW_BASE_FUNCTION_COUNT 5426)
+set(MKW_SHARED_BASE_FUNCTION_COUNT 5426)
+set(MKW_RETRO_REWIND_FUNCTION_COUNT 0)
+set(MKW_HAVE_RETRO_REWIND_SHARDS OFF)
+
+========== AUDIT COMPLETE ==========
